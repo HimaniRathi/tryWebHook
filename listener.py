@@ -8,7 +8,13 @@ app = Flask(__name__)
 def webhook():
  print("webhook"); sys.stdout.flush()
  if request.method == 'POST':
-  print(request.json)
+  #print(request.json)
+  f = open("version", 'r')
+  line = f.read()
+  line = f.read()
+  print(line)
+  if line[: 9] == '"version"':
+   print(line[13])   
   return '', 200
  else:
   abort(400)
