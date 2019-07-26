@@ -4,14 +4,6 @@ import json
 
 app = Flask(__name__)
 
-def updateVersion():
-  data = {}
-  with open("version.json","r") as f:
-    data = json.loads(f.read())
-  data["version"] = data["version"] + 1
-  with open("version.json","w") as f:
-    f.write(json.dumps(data))
-
 @app.route('/', methods=['POST'])
 def webhook():
   print("webhook"); sys.stdout.flush()
@@ -21,6 +13,14 @@ def webhook():
     return '', 200
   else:
     abort(400)
+
+def updateVersion():
+  data = {}
+  with open("version.json","r") as f:
+    data = json.loads(f.read())
+  data["version"] = data["version"] + 1
+  with open("version.json","w") as f:
+    f.write(json.dumps(data))
 
 if __name__ == '__main__':
   app.run()
