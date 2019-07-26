@@ -11,18 +11,9 @@ def webhook():
   if request.method == 'POST':
     print(request.json)
     os.system('bash script.sh')
-    # updateVersion()
     return '', 200
   else:
     abort(400)
-
-# def updateVersion():
-#   data = {}
-#   with open("version.json","r") as f:
-#     data = json.loads(f.read())
-#   data["version"] = data["version"] + 1
-#   with open("version.json","w") as f:
-#     f.write(json.dumps(data))
 
 if __name__ == '__main__':
   app.run()
