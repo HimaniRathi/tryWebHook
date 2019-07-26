@@ -9,8 +9,7 @@ def webhook():
   print("webhook"); sys.stdout.flush()
   if request.method == 'POST':
     print(request.json)
-    # print(request.)
-    updateVersion()
+    # updateVersion()
     return '', 200
   else:
     abort(400)

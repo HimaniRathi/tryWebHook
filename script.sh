@@ -1,2 +1,5 @@
-a = cat version.json | jq '.version'
-echo $(($a + 1))
+git pull
+python gitScript.py
+git add version.json
+git commit -m "version updated"
+git push origin master
