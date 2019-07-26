@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def webhook():
   print("webhook"); sys.stdout.flush()
-  if request.method == 'POST':
+  temp = request.json
+  if request.method == 'POST' and temp["action"] == "closed" and temp["pull_request"]["merged"]:
     print(request.json)
     os.system('bash script.sh')
     return '', 200
