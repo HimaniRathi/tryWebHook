@@ -10,11 +10,11 @@ def webhook():
   print("webhook"); sys.stdout.flush()
   if request.method == 'POST':
     print(request.json)
-  data = {}
-  with open("version.json","w") as f:
-    data = json.load(f)
-  print(data)
-  return '', 200
+    data = {}
+    with open("version.json","w") as f:
+      data = json.load(f)
+    print(data)
+    return '', 200
   else:
     abort(400)
 
